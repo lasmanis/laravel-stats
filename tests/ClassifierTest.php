@@ -12,6 +12,7 @@ use Wnx\LaravelStats\Tests\Stubs\Tests\DemoBrowserKit;
 use Wnx\LaravelStats\Tests\Stubs\MyCustomComponentClass;
 use Wnx\LaravelStats\Tests\Stubs\MyCustomComponentClassifier;
 use Wnx\LaravelStats\Tests\Stubs\EventListeners\DemoEventListener;
+use Wnx\LaravelStats\Tests\Stubs\Traits\DemoTrait;
 
 class ClassifierTest extends TestCase
 {
@@ -217,6 +218,14 @@ class ClassifierTest extends TestCase
     {
         $this->assertSame(
             'Event Listeners', $this->classifier->classify(new ReflectionClass(DemoEventListener::class))
+        );
+    }
+
+    /** @test */
+    public function it_detects_traits()
+    {
+        $this->assertSame(
+            'Traits', $this->classifier->classify(new ReflectionClass(DemoTrait::class))
         );
     }
 

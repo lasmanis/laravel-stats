@@ -121,6 +121,12 @@ class ComponentFinderTest extends TestCase
     }
 
     /** @test */
+    public function it_finds_traits()
+    {
+        $this->assertTrue($this->classes->contains(\Wnx\LaravelStats\Tests\Stubs\Traits\DemoTrait::class));
+    }
+
+    /** @test */
     public function it_ignores_native_php_classes()
     {
         $this->assertFalse($this->classes->contains('stdClass'));
