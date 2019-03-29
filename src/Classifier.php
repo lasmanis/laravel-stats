@@ -26,6 +26,7 @@ use Wnx\LaravelStats\Classifiers\NotificationClassifier;
 use Wnx\LaravelStats\Classifiers\EventListenerClassifier;
 use Wnx\LaravelStats\Classifiers\BrowserKitTestClassifier;
 use Wnx\LaravelStats\Classifiers\ServiceProviderClassifier;
+use Wnx\LaravelStats\Classifiers\TraitClassifier;
 use Wnx\LaravelStats\Contracts\Classifier as ClassifierContract;
 
 class Classifier
@@ -47,6 +48,7 @@ class Classifier
         ResourceClassifier::class,
         SeederClassifier::class,
         ServiceProviderClassifier::class,
+        TraitClassifier::class,
         BrowserKitTestClassifier::class,
         DuskClassifier::class,
         PhpUnitClassifier::class,

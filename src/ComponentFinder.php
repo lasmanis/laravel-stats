@@ -31,7 +31,7 @@ class ComponentFinder
      */
     public function get()
     {
-        return $this->findAndLoadClasses()
+        return $this->findAndLoadClassesAndTraits()
             ->map(function ($class) {
                 return new ReflectionClass($class);
             })
@@ -59,7 +59,7 @@ class ComponentFinder
      *
      * @return Collection
      */
-    protected function findAndLoadClasses()
+    protected function findAndLoadClassesAndTraits()
     {
         ob_start();
 
@@ -73,7 +73,7 @@ class ComponentFinder
 
         ob_end_clean();
 
-        return collect(get_declared_classes());
+        return collect(array_merge(get_declared_classes(), get_declared_traits()));
     }
 
     /**
